@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+      function words() {
+      let text = prompt('Введите текст без знаков препинания.');
+      text = text.split(' ');
+      for (let i = 0; i < text.length; i++) {
+        let flag = false;
+        for (let k = 0; k < text.length - 1 - i; k++) {
+          if (text[k].length > text[k + 1].length) {
+            let swap = text[k];
+            text[k] = text[k + 1];
+            text[k + 1] = swap;
+            flag = true;
+          }
+        }
+        if (!flag) break;
+      }
+      text = text.reverse();
+      alert(`${text[0]}; ${text[1]}; ${text[2]}`);
+    }
+    addEventListener('keydown', words);
+  </script>
+</body>
+</html>
